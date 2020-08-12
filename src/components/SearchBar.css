@@ -1,0 +1,19 @@
+.jumbotron {
+	margin: 1rem;
+}
+
+.Title__Container {
+	margin-bottom: 2rem;
+}
+
+.Form__Container {
+	margin-top: 2rem;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	width: 100%;
+}
