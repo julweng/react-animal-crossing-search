@@ -1,11 +1,11 @@
 export const reqReducer = (state, action) => {
 	switch (action.type) {
-		case "GET_FISH_SUCCESS":
+		case "GET_DATA_SUCCESS":
 			return {
 				...state,
 				loaded: true
 			}
-		case "GET_FISH_ERROR":
+		case "GET_DATA_ERROR":
 			return {
 				...state,
 				loaded: true,

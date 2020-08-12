@@ -1,16 +1,16 @@
 import React from "react"
 import Container from "react-bootstrap/Container"
-import { FishProvider, ReqProvider } from "context"
-import { SearchBar } from "components"
+import { DataProvider, ReqProvider } from "context"
+import { SearchContainer } from "components"
 import "./App.css"
 
 function App() {
 	return (
 		<Container>
 			<ReqProvider>
-				<FishProvider>
-					<SearchBar />
-				</FishProvider>
+				<DataProvider>
+					<SearchContainer />
+				</DataProvider>
 			</ReqProvider>
 		</Container>
 	)
