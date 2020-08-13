@@ -195,6 +195,7 @@ export const getData = async (dataDispatch, reqDispatch, data) => {
 		}
 
 		if (term) {
+      // change mock-data to currentData
 			res.data = searchData(MOCK_DATA.data, term)
 			if (!res.data.length) {
 				throw new Error("No data items match the search term")

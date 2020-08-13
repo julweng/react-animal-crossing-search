@@ -1,2 +1,2 @@
-export { SearchBar } from "./SearchBar"
-export { SearchContainer } from "./SearchContainer"
+export { SearchBar } from "./SearchBar/SearchBar"
+export { SearchContainer } from "./SearchContainer/SearchContainer"

@@ -1,12 +1,12 @@
 import React from "react"
 import Container from "react-bootstrap/Container"
 import Jumbotron from "react-bootstrap/Jumbotron"
-import { SearchBar } from "."
+import { SearchBar } from ".."
 import "./SearchContainer.css"
 
 export const SearchContainer = () => {
   return (
-    <Jumbotron>
+    <Jumbotron data-testid="search-container">
 			<Container className="Title__Container">
 				<h1>Search Animal Crossing<span role="img" aria-label="leaf emoji">🌱</span></h1>
 			</Container>

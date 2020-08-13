@@ -46,13 +46,10 @@ export const SearchBar = () => {
     data.term = searchText
 
     getData(useDataDispatch, useReqDispatch, data)
-
-    // search current useDAtaState data
-
   }
 
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form onSubmit={handleSubmit} data-testid="search-form">
 			<Form.Row>
 				<Form.Group as={Col} controlId="formSearchText">
 					<Form.Label>Search</Form.Label>
@@ -62,6 +59,7 @@ export const SearchBar = () => {
 						placeholder="Enter your search"
 						value={searchText}
 						onChange={handleChange}
+            data-testid="search-input"
 					/>
 				</Form.Group>
 				<Form.Group as={Col} controlId="formSearchCategory">
@@ -71,9 +69,10 @@ export const SearchBar = () => {
 						size="lg"
 						value={searchCategory}
 						onChange={handleSelect}
+            data-testid="category-select"
 					>
 						{Object.values(CATEGORY).map(cat => (
-							<option key={cat}>{cat}</option>
+							<option key={cat} data-testid={cat}>{cat}</option>
 						))}
 					</Form.Control>
 				</Form.Group>
