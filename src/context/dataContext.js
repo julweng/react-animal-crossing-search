@@ -7,7 +7,9 @@ const DataContext = createContext()
 export const DataProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(dataReducer, {
 		id: null,
-		data: []
+    data: [],
+    category: "fish",
+    term: ""
 	})
 
 	return (

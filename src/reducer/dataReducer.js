@@ -1,9 +1,12 @@
 export const dataReducer = (state, action) => {
-	switch (action.type) {
+  console.log(action.data)
+  switch (action.type) {
 		case "GET_DATA_SUCCESS":
 			return {
 				...state,
-				id: action.id,
+        id: action.id,
+        category: action.category,
+        term: action.term,
 				data: [...state.data, ...action.data]
 			}
 

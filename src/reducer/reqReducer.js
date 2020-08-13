@@ -9,7 +9,8 @@ export const reqReducer = (state, action) => {
 			return {
 				...state,
 				loaded: true,
-				err: action.err
+        err: action.err,
+        errMessage: action.errMessage
 			}
 		default:
 			return state

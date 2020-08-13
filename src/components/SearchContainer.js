@@ -8,7 +8,7 @@ export const SearchContainer = () => {
   return (
     <Jumbotron>
 			<Container className="Title__Container">
-				<h1>Search Animal Crossing 🌱</h1>
+				<h1>Search Animal Crossing<span role="img" aria-label="leaf emoji">🌱</span></h1>
 			</Container>
       <Container className="Form__Container">
         <SearchBar />
