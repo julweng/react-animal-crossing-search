@@ -20,33 +20,33 @@ const CATEGORY = {
 export const SearchBar = () => {
 	const [searchText, setSearchText] = useState("")
 	const [searchCategory, setSearchCategory] = useState("Fish")
-  
-  const { useDataState, useDataDispatch } = useDataValue()
+
+	const { useDataState, useDataDispatch } = useDataValue()
 	const { useReqDispatch } = useReqValue()
 
-  const data = {
-    currentData: useDataState.data,
-    prevCategory: useDataState.category,
-    id: null
-  }
+	const data = {
+		currentData: useDataState.data,
+		prevCategory: useDataState.category,
+		id: null
+	}
 
 	const handleChange = e => {
 		setSearchText(e.target.value.trim())
 	}
 	const handleSelect = e => {
-    setSearchCategory(e.target.value.trim())
-  }
-  
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    
-    const selectedCategory = getKeyByValue(CATEGORY, searchCategory)
-    data.selectedCategory = selectedCategory
-    data.term = searchText
+		setSearchCategory(e.target.value.trim())
+	}
 
-    getData(useDataDispatch, useReqDispatch, data)
-  }
+	const handleSubmit = e => {
+		e.preventDefault()
+		e.stopPropagation()
+
+		const selectedCategory = getKeyByValue(CATEGORY, searchCategory)
+		data.selectedCategory = selectedCategory
+		data.term = searchText
+
+		getData(useDataDispatch, useReqDispatch, data)
+	}
 
 	return (
 		<Form onSubmit={handleSubmit} data-testid="search-form">
@@ -59,7 +59,7 @@ export const SearchBar = () => {
 						placeholder="Enter your search"
 						value={searchText}
 						onChange={handleChange}
-            data-testid="search-input"
+						data-testid="search-input"
 					/>
 				</Form.Group>
 				<Form.Group as={Col} controlId="formSearchCategory">
@@ -69,17 +69,19 @@ export const SearchBar = () => {
 						size="lg"
 						value={searchCategory}
 						onChange={handleSelect}
-            data-testid="category-select"
+						data-testid="category-select"
 					>
 						{Object.values(CATEGORY).map(cat => (
-							<option key={cat} data-testid={cat}>{cat}</option>
+							<option key={cat} data-testid={cat}>
+								{cat}
+							</option>
 						))}
 					</Form.Control>
 				</Form.Group>
 			</Form.Row>
-      <Button type="submit" size="lg">
-    Submit
-  </Button>
+			<Button type="submit" size="lg">
+				Submit
+			</Button>
 		</Form>
 	)
 }

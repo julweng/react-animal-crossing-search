@@ -1,7 +1,7 @@
 import React from "react"
 import Container from "react-bootstrap/Container"
 import { DataProvider, ReqProvider } from "context"
-import { SearchContainer } from "components"
+import { CardsContainer, SearchContainer } from "components"
 import "./App.css"
 
 function App() {
@@ -10,6 +10,8 @@ function App() {
 			<ReqProvider>
 				<DataProvider>
 					<SearchContainer />
+
+					<CardsContainer />
 				</DataProvider>
 			</ReqProvider>
 		</Container>

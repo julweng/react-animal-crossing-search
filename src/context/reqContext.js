@@ -5,7 +5,11 @@ import { reqReducer } from "reducer"
 const ReqContext = createContext()
 
 export const ReqProvider = ({ children }) => {
-	const [state, dispatch] = useReducer(reqReducer, { loaded: false, err: null })
+	const [state, dispatch] = useReducer(reqReducer, { 
+    isLoading: false,
+    err: null,
+    errMessage: "" 
+  })
 
 	return (
 		<ReqContext.Provider

@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { SearchContainer } from "./SearchContainer"
+import { SearchContainer } from "components"
 
 jest.mock("context", () => ({
   useDataValue: jest.fn(() => ({

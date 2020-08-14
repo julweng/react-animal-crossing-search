@@ -1,18 +1,27 @@
 export const reqReducer = (state, action) => {
+  console.log(action.type)
 	switch (action.type) {
+    case "GET_DATA_REQUEST": {
+      return {
+        ...state,
+        isLoading: true
+      }
+    }
+      
 		case "GET_DATA_SUCCESS":
 			return {
 				...state,
-				loaded: true
+				isLoading: false
 			}
 		case "GET_DATA_ERROR":
 			return {
 				...state,
-				loaded: true,
+				isLoading: false,
         err: action.err,
         errMessage: action.errMessage
 			}
 		default:
 			return state
-	}
+  }
 }
+

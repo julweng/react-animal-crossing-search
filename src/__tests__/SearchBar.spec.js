@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 import { getData } from "actions"
 import { useDataValue, useReqValue } from "context"
 import { getKeyByValue } from "helpers"
-import { SearchBar } from "./SearchBar"
+import { SearchBar } from "components"
 
 jest.mock("context", () => ({
 	useDataValue: jest.fn(() => ({

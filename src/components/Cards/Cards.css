@@ -1,0 +1,22 @@
+.Card__Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: .3rem;
+}
+
+.Card__Container, .card {
+  background-color: #4f5558;
+}
+
+.card {
+  border: 0.5px solid #ccd5da;
+  cursor: pointer;
+}
+
+.card-title {
+  text-align: center;
+  color: #fff;
+}
+
+

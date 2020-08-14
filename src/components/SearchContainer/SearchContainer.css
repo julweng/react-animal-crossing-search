@@ -2,6 +2,10 @@
 	margin: 1rem;
 }
 
+.jumbotron {
+  position: relative;
+}
+
 .Title__Container {
 	margin-bottom: 2rem;
 }
