@@ -13,7 +13,10 @@ jest.mock("context", () => ({
     }
   })),
   useReqValue: jest.fn(() =>({
-    useReqDispatch: jest.fn()
+    useReqDispatch: jest.fn(),
+    useReqState: {
+      isLoading: false
+    }
   }))
 }))
 

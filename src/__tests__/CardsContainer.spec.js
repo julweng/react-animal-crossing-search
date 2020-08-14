@@ -13,10 +13,27 @@ jest.mock("context", () => ({
 		}
 	})),
 	useReqValue: jest.fn(() => ({
-		useReqDispatch: jest.fn()
+    useReqDispatch: jest.fn(),
+    useReqState: {
+      err: false,
+      errMessage: ""
+    }
 	}))
 }))
 
 describe("CardsContainer", () => {
-  it("Should render")
+  it("Should render CardsContainer", () => {
+    render(<CardsContainer />)
+    expect(screen.getByTestId("cards-container")).toBeTruthy()
+  })
+
+  it("Should render ErrorMessage", () => {
+    render(<CardsContainer />)
+    expect(screen.getByTestId("error-message")).toBeTruthy()
+  })
+
+  it("Should render Cards", () => {
+    render(<CardsContainer />)
+    expect(screen.getByTestId("cards")).toBeTruthy()
+  })
 })
