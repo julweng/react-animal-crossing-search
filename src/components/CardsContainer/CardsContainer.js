@@ -5,7 +5,7 @@ import "./CardsContainer.css"
 
 export const CardsContainer = () => {
 	return (
-		<Container className="Cards__Container">
+		<Container className="Cards__Container" data-testid="cards-container">
 			<ErrorMessage />
 			<Cards />
 		</Container>

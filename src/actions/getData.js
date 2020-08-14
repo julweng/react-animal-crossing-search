@@ -213,7 +213,8 @@ export const getData = async (dataDispatch, reqDispatch, data) => {
     
 		await reqDispatch({
 			type: "GET_DATA_SUCCESS"
-		})
+    })
+    throw new Error("No data items match the search term")
 	} catch (err) {
 		reqDispatch({
 			type: "GET_DATA_ERROR",

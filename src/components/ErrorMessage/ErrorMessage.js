@@ -1,5 +1,6 @@
 import React from "react"
 import { useReqValue } from "context"
+import "./ErrorMessage.css"
 
 export const ErrorMessage = () => {
 	const {
@@ -9,10 +10,10 @@ export const ErrorMessage = () => {
 	return (
 		<div>
 			{err && (
-				<>
-					<p>Oops! Something went wrong</p>
-					{errMessage && <p>{errMessage}</p>}
-				</>
+				<div className="Error__Message__Container" data-testid="error-message">
+					<h3>Oops! Something went wrong</h3>
+					{errMessage && <h4>{errMessage}</h4>}
+				</div>
 			)}
 		</div>
 	)

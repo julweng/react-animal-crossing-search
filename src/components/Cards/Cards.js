@@ -27,7 +27,7 @@ export const Cards = () => {
   }
 
 	return (
-		<Container className="Card__Container">
+		<Container className="Card__Container" data-testid="cards">
 			{!isLoading &&
 				data.length > 0 &&
 				data.map(d => (
