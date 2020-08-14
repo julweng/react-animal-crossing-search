@@ -4,6 +4,9 @@
 
 .jumbotron {
   position: relative;
+  margin: 2rem 0 0 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .Title__Container {
@@ -11,7 +14,7 @@
 }
 
 .Form__Container {
-	margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 h1 {

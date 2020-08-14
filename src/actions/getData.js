@@ -179,19 +179,19 @@ const MOCK_DATA = {
 }
 
 export const getData = async (dataDispatch, reqDispatch, data) => {
-	const { currentData, prevCategory, selectedCategory, term, id } = data
+	const { prevCategory, selectedCategory, term, id } = data
   reqDispatch({ type: "GET_DATA_REQUEST" })
 
   try {
 		let res = {}
    
-		if (selectedCategory !== prevCategory) {
+		if (selectedCategory !== null && selectedCategory !== prevCategory) {
 			// res = await axios.get(`${API_URL}/${selectedCategory}`)
 			console.log(`${API_URL}/${selectedCategory}`)
 			res = MOCK_DATA
 		} else {
 			// res = await axios.get(`${API_URL}/${prevCategory}`)
-			console.log(`${API_URL}/${prevCategory}`)
+			console.log(`${API_URL}/${prevCategory}/${id ? id : ""}`)
 			res = MOCK_DATA
 		}
 
@@ -210,10 +210,10 @@ export const getData = async (dataDispatch, reqDispatch, data) => {
 			term,
 			id
     })
-    /*
+    
 		await reqDispatch({
 			type: "GET_DATA_SUCCESS"
-		})*/
+		})
 	} catch (err) {
 		reqDispatch({
 			type: "GET_DATA_ERROR",

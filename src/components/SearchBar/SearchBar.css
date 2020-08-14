@@ -1,8 +1,13 @@
 form {
-	width: 100%;
+  width: 100%;
+}
+
+.center-btn {
+  text-align: center;
 }
 
 .btn-primary {
   background-color: #08af10;
   border-color: #08af10;
+  margin-top: 1rem;
 }

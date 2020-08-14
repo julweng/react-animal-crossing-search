@@ -21,14 +21,11 @@ export const SearchBar = () => {
 	const [searchText, setSearchText] = useState("")
 	const [searchCategory, setSearchCategory] = useState("Fish")
 
-	const { useDataState, useDataDispatch } = useDataValue()
+	const {
+		useDataState: { category, id },
+		useDataDispatch
+	} = useDataValue()
 	const { useReqDispatch } = useReqValue()
-
-	const data = {
-		currentData: useDataState.data,
-		prevCategory: useDataState.category,
-		id: null
-	}
 
 	const handleChange = e => {
 		setSearchText(e.target.value.trim())
@@ -42,10 +39,12 @@ export const SearchBar = () => {
 		e.stopPropagation()
 
 		const selectedCategory = getKeyByValue(CATEGORY, searchCategory)
-		data.selectedCategory = selectedCategory
-		data.term = searchText
-
-		getData(useDataDispatch, useReqDispatch, data)
+		getData(useDataDispatch, useReqDispatch, {
+			prevCategory: category,
+			selectedCategory,
+			term: searchText,
+			id
+		})
 	}
 
 	return (
@@ -79,9 +78,11 @@ export const SearchBar = () => {
 					</Form.Control>
 				</Form.Group>
 			</Form.Row>
-			<Button type="submit" size="lg">
-				Submit
-			</Button>
+			<div className="center-btn">
+				<Button type="submit" size="lg">
+					Submit
+				</Button>
+			</div>
 		</Form>
 	)
 }
