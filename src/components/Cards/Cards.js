@@ -31,8 +31,8 @@ export const Cards = () => {
 			{!isLoading &&
 				data.length > 0 &&
 				data.map(d => (
-					<Card key={d.id} onClick={() => handleClick(d.id)}>
-						<Card.Img src={d.icon_uri} />
+					<Card key={d.id} onClick={() => handleClick(d.id)} data-testid="individual-card">
+						<Card.Img src={d.icon_uri} alt={d.name["name-USen"]} />
 						<Card.Title>{d.name["name-USen"]}</Card.Title>
 					</Card>
 				))}
