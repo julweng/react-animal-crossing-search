@@ -19,18 +19,14 @@ jest.mock("context", () => ({
 	useDataValue: jest.fn(() => ({
 		useDataDispatch: jest.fn(),
 		useDataState: {
-			id: null,
 			category: "fish",
-			term: "",
 			data: mockData
 		}
 	})),
 	useReqValue: jest.fn(() => ({
     useReqDispatch: jest.fn(),
     useReqState: {
-      isLoading: mockIsLoading,
-      err: false,
-      errMessage: ""
+      isLoading: mockIsLoading
     }
 	}))
 }))

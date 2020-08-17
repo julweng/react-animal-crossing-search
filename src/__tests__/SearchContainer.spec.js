@@ -6,7 +6,6 @@ jest.mock("context", () => ({
   useDataValue: jest.fn(() => ({
     useDataDispatch: jest.fn(),
     useDataState: {
-      id: null,
       category: "fish",
       term: "",
 			data: []
