@@ -11,7 +11,7 @@ export const Loader = () => {
 
 	return (
 		isLoading && (
-			<div className="Loader__Container">
+			<div className="Loader__Container" data-testid="loader-container">
 				{[...Array(4).keys()].map(k => (
 					<Spinner
 						animation="border"
