@@ -8,11 +8,11 @@ export const ErrorMessage = () => {
 	} = useReqValue()
 
 	return (
-		<div className="Error__Message__Container" data-testid="error-message">
+		<div className="Error__Message__Container" data-testid="error-message-container">
 			{err && (
 				<>
 					<h3>Oops! Something went wrong</h3>
-					{errMessage && <h4>{errMessage}</h4>}
+					{errMessage && <h4 data-testid="error-message">{errMessage}</h4>}
 				</>
 			)}
 		</div>

@@ -28,7 +28,7 @@ describe("CardsContainer", () => {
 
   it("Should render ErrorMessage", () => {
     render(<CardsContainer />)
-    expect(screen.getByTestId("error-message")).toBeTruthy()
+    expect(screen.getByTestId("error-message-container")).toBeTruthy()
   })
 
   it("Should render Cards", () => {
