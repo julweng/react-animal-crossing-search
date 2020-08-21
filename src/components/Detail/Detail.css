@@ -1,0 +1,54 @@
+.Detail__Container.card, .top-container {
+  background-color: rgb(224, 250, 228);
+  cursor: default;
+}
+
+.detail {
+	background-color: #fff;
+}
+
+.center-image {
+  flex-grow: 0;
+}
+
+.item-name {
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-center.info {
+  flex-grow: 0.5;
+}
+
+.align-text-left {
+  text-align: left;
+}
+
+.center-image {
+  text-align: center;
+}
+
+.align-self-center > .col {
+  text-align: center;
+}
+
+.card-img {
+  width: 250px;
+  height: 250px;
+}
+
+.active-month {
+	font-weight: bold;
+}
+
+.months-container {
+	margin-bottom: 1rem;
+}
+
+span {
+	margin: 0 0.8rem !important;
+}

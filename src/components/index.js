@@ -1,4 +1,5 @@
 export { CardsContainer } from "./CardsContainer/CardsContainer"
+export { Detail } from "./Detail/Detail"
 export { ErrorMessage } from "./ErrorMessage/ErrorMessage"
 export { Cards } from "./Cards/Cards"
 export { SearchBar } from "./SearchBar/SearchBar"

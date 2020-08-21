@@ -1,6 +1,6 @@
 import React from "react"
 import Container from "react-bootstrap/Container"
-import { ErrorMessage, Cards } from "components"
+import { Cards, Detail, ErrorMessage } from "components"
 import "./CardsContainer.css"
 
 export const CardsContainer = () => {
@@ -8,6 +8,7 @@ export const CardsContainer = () => {
 		<Container className="Cards__Container" data-testid="cards-container">
 			<ErrorMessage />
 			<Cards />
+      <Detail />
 		</Container>
 	)
 }
