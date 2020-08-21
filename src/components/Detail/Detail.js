@@ -106,23 +106,25 @@ export const Detail = () => {
 				<h3 className="item-name">{info.name["name-USen"]}</h3>
 
 				<Row>
-					<Col className="center-image">
-						<Card.Img src={info.icon_uri} />
+					<Col>
+						<Card.Img src={info.icon_uri} className="center-image" />
 					</Col>
 
 					<Col className="align-self-center info">
 						<Col>
-							<p className="align-text-left">
+							<p className="align-text-center">
 								Sell Price: {info.price ?? "unknown"}
 							</p>
 						</Col>
 						<Col>
-							<p className="align-text-left">
+							<p className="align-text-center">
 								Location: {info.availability?.location ?? "unknown"}
 							</p>
 						</Col>
+					</Col>
+					<Col className="align-self-center info">
 						<Col>
-							<p className="align-text-left">
+							<p className="align-text-center">
 								Time:{" "}
 								{info.availability?.isAllDay
 									? "AM & PM"
@@ -130,45 +132,44 @@ export const Detail = () => {
 							</p>
 						</Col>
 						<Col>
-							<p className="align-text-left">
+							<p className="align-text-center">
 								Rarity: {info.availability?.rarity ?? "unknown"}
 							</p>
 						</Col>
 					</Col>
-					</Row>
-						<Row className="months-container">
-							<h5>North</h5>
-							{MONTHS.map((m, i) => (
-								<span
-									key={`north_${i + 1}`}
-									className={
-										info.availability["month-array-northern"].includes(i + 1)
-											? "active-month"
-											: ""
-									}
-								>
-									{m[`${i + 1}`]}
-								</span>
-							))}
-						</Row>
+				</Row>
+				<Row className="months-container">
+					<h5>North: </h5>
 
-						<Row className="months-container">
-							<h5>South</h5>
-							{MONTHS.map((m, i) => (
-								<span
-									key={`south_${i + 1}`}
-									className={
-										info.availability["month-array-southern"].includes(i + 1)
-											? "active-month"
-											: ""
-									}
-								>
-									{m[`${i + 1}`]}
-								</span>
-							))}
-						</Row>
+					{MONTHS.map((m, i) => (
+						<span
+							key={`north_${i + 1}`}
+							className={
+								info.availability["month-array-northern"].includes(i + 1)
+									? "active-month"
+									: "non-active-month"
+							}
+						>
+							{m[`${i + 1}`]}
+						</span>
+					))}
+				</Row>
 
-			
+				<Row className="months-container">
+					<h5>South: </h5>
+					{MONTHS.map((m, i) => (
+						<span
+							key={`south_${i + 1}`}
+							className={
+								info.availability["month-array-southern"].includes(i + 1)
+									? "active-month"
+									: "non-active-month"
+							}
+						>
+							{m[`${i + 1}`]}
+						</span>
+					))}
+				</Row>
 			</Card.Body>
 		</Card>
 	)

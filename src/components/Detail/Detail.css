@@ -7,32 +7,12 @@
 	background-color: #fff;
 }
 
-.center-image {
-  flex-grow: 0;
-}
-
 .item-name {
   text-transform: capitalize;
   text-align: left;
 }
 
-.align-self-center {
-  align-self: center;
-}
-
-.align-self-center.info {
-  flex-grow: 0.5;
-}
-
-.align-text-left {
-  text-align: left;
-}
-
-.center-image {
-  text-align: center;
-}
-
-.align-self-center > .col {
+.align-text-center {
   text-align: center;
 }
 
@@ -41,12 +21,18 @@
   height: 250px;
 }
 
+.months-container {
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
 .active-month {
+  color: rgb(245, 167, 167);
 	font-weight: bold;
 }
 
-.months-container {
-	margin-bottom: 1rem;
+.non-active-month {
+  color: rgb(236, 234, 234);
 }
 
 span {
