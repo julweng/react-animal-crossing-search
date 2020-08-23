@@ -138,38 +138,23 @@ export const Detail = () => {
 						</Col>
 					</Col>
 				</Row>
-				<Row className="months-container">
-					<h5>North: </h5>
-
-					{MONTHS.map((m, i) => (
-						<span
-							key={`north_${i + 1}`}
-							className={
-								info.availability["month-array-northern"].includes(i + 1)
-									? "active-month"
-									: "non-active-month"
-							}
-						>
-							{m[`${i + 1}`]}
-						</span>
-					))}
-				</Row>
-
-				<Row className="months-container">
-					<h5>South: </h5>
-					{MONTHS.map((m, i) => (
-						<span
-							key={`south_${i + 1}`}
-							className={
-								info.availability["month-array-southern"].includes(i + 1)
-									? "active-month"
-									: "non-active-month"
-							}
-						>
-							{m[`${i + 1}`]}
-						</span>
-					))}
-				</Row>
+				{["month-array-northern", "month-array-southern"].map(hemisphere => (
+					<Row className="months-container" key={hemisphere}>
+						<h5>North: </h5>
+						{MONTHS.map((m, i) => (
+							<span
+								key={`${hemisphere}_${i + 1}`}
+								className={
+									info.availability[`${hemisphere}`].includes(i + 1)
+										? "active-month"
+										: "non-active-month"
+								}
+							>
+								{m[`${i + 1}`]}
+							</span>
+						))}
+					</Row>
+				))}
 			</Card.Body>
 		</Card>
 	)
