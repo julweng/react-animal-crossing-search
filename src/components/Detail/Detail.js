@@ -21,119 +21,47 @@ const MONTHS = [
 	{ 12: "Dec" }
 ]
 
-const MOCK_DATA = {
-	data: [
-		{
-			id: 1,
-			"file-name": "bitterling",
-			name: {
-				"name-USen": "bitterling",
-				"name-EUen": "bitterling",
-				"name-EUde": "Bitterling",
-				"name-EUes": "amarguillo",
-				"name-USes": "amarguillo",
-				"name-EUfr": "bouvière",
-				"name-USfr": "bouvière",
-				"name-EUit": "rodeo",
-				"name-EUnl": "bittervoorn",
-				"name-CNzh": "红目鲫",
-				"name-TWzh": "紅目鯽",
-				"name-JPja": "タナゴ",
-				"name-KRko": "납줄개",
-				"name-EUru": "горчак"
-			},
-			availability: {
-				"month-northern": "11-3",
-				"month-southern": "5-9",
-				time: "",
-				isAllDay: true,
-				isAllYear: false,
-				location: "River",
-				rarity: "Common",
-				"month-array-northern": [11, 12, 1, 2, 3],
-				"month-array-southern": [5, 6, 7, 8, 9],
-				"time-array": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8,
-					9,
-					10,
-					11,
-					12,
-					13,
-					14,
-					15,
-					16,
-					17,
-					18,
-					19,
-					20,
-					21,
-					22,
-					23
-				]
-			},
-			shadow: "Smallest (1)",
-			price: 900,
-			"price-cj": 1350,
-			"catch-phrase":
-				"I caught a bitterling! It's mad at me, but only a little.",
-			"museum-phrase":
-				"Bitterlings hide their eggs inside large bivalves—like clams—where the young can stay safe until grown. The bitterling isn't being sneaky. No, their young help keep the bivalve healthy by eating invading parasites! It's a wonderful bit of evolutionary deal making, don't you think? Each one keeping the other safe... Though eating parasites does not sound like a happy childhood... Is that why the fish is so bitter?",
-			image_uri: "https://acnhapi.com/v1/images/fish/1",
-			icon_uri: "https://acnhapi.com/v1/icons/fish/1"
-		}
-	]
-}
-
-const mockCategory = "fish"
-
 export const Detail = () => {
-	/*(const {
+	const {
 		useDataState: { data, category }
-	} = useDataValue()*/
-	const [info] = MOCK_DATA.data
+  } = useDataValue()
+  
+	const [info] = data
 
 	return (
 		<Card className="Detail__Container" data-testid="detail-container">
 			<Card.Body className="detail">
-				<h3 className="item-name">{info.name["name-USen"]}</h3>
+				<h3 className="item-name" data-testid="item-name">{info?.name["name-USen"] ?? "unknown"}</h3>
 
 				<Row>
 					<Col>
-						<Card.Img src={info.icon_uri} className="center-image" />
+						<Card.Img src={info?.icon_uri} className="center-image" />
 					</Col>
 
 					<Col className="align-self-center info">
 						<Col>
-							<p className="align-text-center">
-								Sell Price: {info.price ?? "unknown"}
+							<p className="align-text-center" data-testid="item-price">
+								Sell Price: {info?.price ?? "unknown"}
 							</p>
 						</Col>
 						<Col>
-							<p className="align-text-center">
-								Location: {info.availability?.location ?? "unknown"}
+							<p className="align-text-center" data-testid="item-location">
+								Location: {info?.availability?.location ?? "unknown"}
 							</p>
 						</Col>
 					</Col>
 					<Col className="align-self-center info">
 						<Col>
-							<p className="align-text-center">
+							<p className="align-text-center" data-testid="item-period">
 								Time:{" "}
-								{info.availability?.isAllDay
+								{info?.availability?.isAllDay
 									? "AM & PM"
-									: info.availability?.time}
+									: info?.availability?.time ?? "unknown"}
 							</p>
 						</Col>
 						<Col>
-							<p className="align-text-center">
-								Rarity: {info.availability?.rarity ?? "unknown"}
+							<p className="align-text-center" data-testid="item-rarity">
+								Rarity: {info?.availability?.rarity ?? "unknown"}
 							</p>
 						</Col>
 					</Col>
@@ -143,9 +71,10 @@ export const Detail = () => {
 						<h5>North: </h5>
 						{MONTHS.map((m, i) => (
 							<span
+                data-testid="item-months"
 								key={`${hemisphere}_${i + 1}`}
 								className={
-									info.availability[`${hemisphere}`].includes(i + 1)
+									info?.availability[`${hemisphere}`].includes(i + 1)
 										? "active-month"
 										: "non-active-month"
 								}
