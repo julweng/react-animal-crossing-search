@@ -31,7 +31,7 @@ export const SearchBar = () => {
 		setSearchText(e.target.value.trim())
 	}
 	const handleSelect = e => {
-		setSearchCategory(e.target.value.trim())
+    setSearchCategory(e.target.value.trim())
 	}
 
 	const handleSubmit = e => {

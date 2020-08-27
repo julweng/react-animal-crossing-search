@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { useDataValue } from "context"
+import { Villager } from "./Villager/Villager"
 import "./Detail.css"
 
 const MONTHS = [
@@ -91,37 +92,49 @@ export const Detail = () => {
 
 	const [info] = data
 
-	const hasLocationData = category === "Fish" || category === "Buts" 
-    
+  const isFishOrBug = category === "fish" || category === "bugs"
   
+  const isFishOrBugOrSeaCreature = category === "fish" || category === "bugs" || category === "sea"
+  const isSeaCreature = category === "sea"
+  
+const isVillager = category === "villagers"
+
 
 	return (
-		<Card className="Detail__Container" data-testid="detail-container">
-			<Card.Body className="detail">
-				<h3 className="item-name" data-testid="item-name">
-					{info?.name["name-USen"] ?? "unknown"}
-				</h3>
-
-				<Row>
-					<Col>
-						<Card.Img src={info?.icon_uri} className="center-image" />
-					</Col>
-
-					<Col className="align-self-center info">
-						<Col>
+		<div data-testid="detail-container">
+			
+        {isVillager && <Villager data={info} />}
+				{/*<Row>
+					{<Col>
+						<Card.Img src={isVillager ? info?.image_uri : info?.icon_uri} className="center-image" />
+					</Col>}
+          
+					{<Col className="align-self-center info">
+						{!isVillager && <Col>
 							<p className="align-text-center" data-testid="item-price">
 								Sell Price: {info?.price ?? "unknown"}
 							</p>
 						</Col>
-						<Col>
-							<p className="align-text-center" data-testid="item-location">
-								Location: {info?.availability?.location ?? "unknown"}
-							</p>
-						</Col>
+            }
+						{isFishOrBug && (
+							<Col>
+								<p className="align-text-center" data-testid="item-location">
+									Location: {info?.availability?.location ?? "unknown"}
+								</p>
+							</Col>
+						)}
+            {
+              isSeaCreature && (
+							<Col>
+								<p className="align-text-center" data-testid="item-speed">
+									Speed: {info?.speed ?? "unknown"}
+								</p>
+							</Col>
+              )}
 					</Col>
 					<Col className="align-self-center info">
 						<Col>
-							{hasLocationData && (
+							{isFishOrBugOrSeaCreature && (
 								<p className="align-text-center" data-testid="item-period">
 									Time:{" "}
 									{info?.availability?.isAllDay
@@ -130,14 +143,16 @@ export const Detail = () => {
 								</p>
 							)}
 						</Col>
-						<Col>
+						{isFishOrBug &&
+              <Col>
 							<p className="align-text-center" data-testid="item-rarity">
-								Rarity: {info?.availability?.rarity ?? "unknown"}
+              Rarity: {info?.availability?.rarity ?? "unknown"}
 							</p>
 						</Col>
+            }
 					</Col>
-				</Row>
-				{["month-array-northern", "month-array-southern"].map(hemisphere => (
+				</Row>*/}
+				{/*["month-array-northern", "month-array-southern"].map(hemisphere => (
 					<Row className="months-container" key={hemisphere}>
 						<h5>North: </h5>
 						{MONTHS.map((m, i) => (
@@ -154,10 +169,9 @@ export const Detail = () => {
 							</span>
 						))}
 					</Row>
-				))}
-			</Card.Body>
-		</Card>
+				))}*/}
+
+		</div>
 	)
 }
 
-export default Detail
