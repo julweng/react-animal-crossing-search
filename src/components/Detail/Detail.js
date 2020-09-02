@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { useDataValue } from "context"
 import { Villager } from "./Villager/Villager"
+import { Creature } from "./Creature/Creature"
 import "./Detail.css"
 
 const MONTHS = [
@@ -89,22 +90,19 @@ export const Detail = () => {
 	const {
 		useDataState: { data, category }
 	} = useDataValue()
-
+	console.log(data, category)
 	const [info] = data
 
-  const isFishOrBug = category === "fish" || category === "bugs"
-  
-  const isFishOrBugOrSeaCreature = category === "fish" || category === "bugs" || category === "sea"
-  const isSeaCreature = category === "sea"
-  
-const isVillager = category === "villagers"
+	const isCreature =
+		category === "fish" || category === "bugs" || category === "sea"
 
+	const isVillager = category === "villagers"
 
 	return (
 		<div data-testid="detail-container">
-			
-        {isVillager && <Villager data={info} />}
-				{/*<Row>
+			{isVillager && <Villager data={info} />}
+			{isCreature && <Creature data={info} />}
+			{/*<Row>
 					{<Col>
 						<Card.Img src={isVillager ? info?.image_uri : info?.icon_uri} className="center-image" />
 					</Col>}
@@ -152,7 +150,7 @@ const isVillager = category === "villagers"
             }
 					</Col>
 				</Row>*/}
-				{/*["month-array-northern", "month-array-southern"].map(hemisphere => (
+			{/*["month-array-northern", "month-array-southern"].map(hemisphere => (
 					<Row className="months-container" key={hemisphere}>
 						<h5>North: </h5>
 						{MONTHS.map((m, i) => (
@@ -170,8 +168,6 @@ const isVillager = category === "villagers"
 						))}
 					</Row>
 				))}*/}
-
 		</div>
 	)
 }
-
