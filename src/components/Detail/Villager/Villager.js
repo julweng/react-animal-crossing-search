@@ -7,8 +7,8 @@ import "./Villager.css"
 
 export const Villager = ({ data }) => {
 	return (
-		<Card className="Villager__Container">
-			<Card.Img src={data?.image_uri} className="villager-image center-block" />
+		<Card className="Villager__Container" data-testid="villager-container">
+			<Card.Img src={data?.image_uri} className="villager-image" />
 			<Card.Body className="villager-body">
 				<Card.Title>{data?.name["name-USen"] ?? "unknown"}</Card.Title>
 				<Row className="villager-data">
