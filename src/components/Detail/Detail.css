@@ -1,0 +1,19 @@
+.Creature__Container.card,
+.Villager__Container.card {
+	padding: 0;
+	text-align: center;
+}
+
+creature-body.card-body,
+.villager-body.card-body {
+	color: #fff;
+}
+
+.creature-body > .card-title.h5,
+.villager-body > .card-title.h5 {
+  font-size: 1.5rem;
+}
+
+.creature-image, .villager-image {
+  align-self: center;
+}

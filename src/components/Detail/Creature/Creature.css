@@ -1,0 +1,8 @@
+.creature-body > .card-title.h5 {
+  text-transform: capitalize;
+}
+
+.creature-image {
+  display: block;
+  width: 50%;
+}

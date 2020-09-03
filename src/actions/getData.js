@@ -53,7 +53,7 @@ const MOCK_DATA = {
 				"catch-EUru": "апчхи"
 			}
     }*/
-    {
+   {
       "id": 1,
       "file-name": "bitterling",
       "name": {

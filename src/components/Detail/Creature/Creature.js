@@ -3,6 +3,7 @@ import { bool, number, shape, string } from "prop-types"
 import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
+import "./Creature.css"
 
 export const Creature = ({ data }) => {
 	const hasLocationData = data?.availability?.location
@@ -12,10 +13,12 @@ export const Creature = ({ data }) => {
 console.log(data)
 	return (
 		<Card className="Creature__Container" data-testid="creature-container">
-			<Card.Img src={data?.image_uri} className="creature-image" />
+      
+      <Card.Img src={data?.image_uri} className="creature-image" />
+
 			<Card.Body className="creature-body">
-				<Card.Title>{data?.name["name-USen"] ?? "unknown"}</Card.Title>
-			</Card.Body>
+      <Card.Title>{data?.name["name-USen"] ?? "unknown"}</Card.Title>
+			
 			<Row className="creature-data">
 				<Col>
 					<Card.Text>Sell Price: {data?.price ?? "unknown"}</Card.Text>
@@ -41,6 +44,7 @@ console.log(data)
 					</Col>
 				)}
 			</Row>
+      </Card.Body>
 		</Card>
 	)
 }

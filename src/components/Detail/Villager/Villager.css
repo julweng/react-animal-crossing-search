@@ -1,20 +1,6 @@
-.Villager__Container.card {
-  padding: 0;
-  text-align: center;
-}
-
-.villager-body.card-body {
-  color: #fff;
-}
-
-.villager-body > .card-title.h5 {
-  font-size: 1.5rem;
-}
-
 .villager-image {
   width: 220px;
   height: 220px;
-  align-self: center;
 }
 
 .villager-data {
