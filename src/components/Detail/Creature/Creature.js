@@ -10,41 +10,55 @@ export const Creature = ({ data }) => {
 	const hasSpeedData = data?.speed
 	const hasShadowData = data?.shadow
 	const hasRarityData = data?.availability?.rarity
-console.log(data)
+	const hasTimeData = data?.availability?.time || data?.availability?.isAllDay
+	console.log(hasTimeData)
 	return (
 		<Card className="Creature__Container" data-testid="creature-container">
-      
-      <Card.Img src={data?.image_uri} className="creature-image" />
+			<Card.Img src={data?.image_uri} className="creature-image" />
 
 			<Card.Body className="creature-body">
-      <Card.Title>{data?.name["name-USen"] ?? "unknown"}</Card.Title>
-			
-			<Row className="creature-data">
-				<Col>
-					<Card.Text>Sell Price: {data?.price ?? "unknown"}</Card.Text>
-				</Col>
-				{hasLocationData && (
+				<Card.Title>{data?.name["name-USen"] ?? "unknown"}</Card.Title>
+
+				<Row className="creature-data">
 					<Col>
-						<Card.Text>Location: {data?.availability?.location ?? "unknown"}</Card.Text>
+						<Card.Text>Sell Price: {data?.price ?? "unknown"}</Card.Text>
 					</Col>
-				)}
-        {hasSpeedData && (
-					<Col>
-						<Card.Text>Speed: {data?.speed ?? "unknown"}</Card.Text>
-					</Col>
-				)}
-        {hasShadowData && (
-					<Col>
-						<Card.Text>Shadow: {data?.shadow ?? "unknown"}</Card.Text>
-					</Col>
-				)}
-        {hasRarityData && (
-					<Col>
-						<Card.Text>Rarity: {data?.availability?.rarity ?? "unknown"}</Card.Text>
-					</Col>
-				)}
-			</Row>
-      </Card.Body>
+					{hasLocationData && (
+						<Col>
+							<Card.Text>
+								Location: {data?.availability?.location ?? "unknown"}
+							</Card.Text>
+						</Col>
+					)}
+					{hasSpeedData && (
+						<Col>
+							<Card.Text>Speed: {data?.speed ?? "unknown"}</Card.Text>
+						</Col>
+					)}
+					{hasShadowData && (
+						<Col>
+							<Card.Text>Shadow: {data?.shadow ?? "unknown"}</Card.Text>
+						</Col>
+					)}
+					{hasRarityData && (
+						<Col>
+							<Card.Text>
+								Rarity: {data?.availability?.rarity ?? "unknown"}
+							</Card.Text>
+						</Col>
+					)}
+					{hasTimeData && (
+						<Col>
+							<Card.Text>
+								Time:{" "}
+								{data?.availability?.isAllDay
+									? "AM & PM"
+									: data?.availability?.time ?? "unknown"}
+							</Card.Text>
+						</Col>
+					)}
+				</Row>
+			</Card.Body>
 		</Card>
 	)
 }
