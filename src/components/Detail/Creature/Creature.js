@@ -5,6 +5,21 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import "./Creature.css"
 
+const MONTHS = [
+	{ 1: "Jan" },
+	{ 2: "Feb" },
+	{ 3: "Mar" },
+	{ 4: "Apr" },
+	{ 5: "May" },
+	{ 6: "Jun" },
+	{ 7: "Jul" },
+	{ 8: "Aug" },
+	{ 9: "Sep" },
+	{ 10: "Oct" },
+	{ 11: "Nov" },
+	{ 12: "Dec" }
+]
+
 export const Creature = ({ data }) => {
 	const hasLocationData = data?.availability?.location
 	const hasSpeedData = data?.speed
@@ -58,6 +73,24 @@ export const Creature = ({ data }) => {
 						</Col>
 					)}
 				</Row>
+        {["month-array-northern", "month-array-southern"].map(hemisphere => (
+					<Row className="months-container" key={hemisphere}>
+						<h5>North: </h5>
+						{MONTHS.map((m, i) => (
+							<span
+								data-testid="item-months"
+								key={`${hemisphere}_${i + 1}`}
+								className={
+									data?.availability[`${hemisphere}`].includes(i + 1)
+										? "active-month"
+										: "non-active-month"
+								}
+							>
+								{m[`${i + 1}`]}
+							</span>
+						))}
+					</Row>
+				))}
 			</Card.Body>
 		</Card>
 	)
